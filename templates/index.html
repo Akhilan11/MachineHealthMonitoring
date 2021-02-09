@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Machine Health Prediction</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<center>	
+<div class="container">
+
+	<div class="login"><br>
+	<div class="jumbotron" style="width: 1000px"><br>
+	<h1>Machine Health Prediction</h1></div>
+	
+
+	<div class="jumbotron" style="width: 800px">
+	<form action="{{ url_for('predict') }}" method="post">
+	<label for="date">Date</label>
+	<select id="date" name="date">
+		<option value="01012021">01-01-2021</option>
+		<option value="02012021">02-01-2021</option>
+		<option value="03012021">03-01-2021</option>
+		<option value="04012021">04-01-2021</option>
+		<option value="05012021">05-01-2021</option>
+		<option value="06012021">06-01-2021</option>
+		<option value="07012021">07-01-2021</option>
+		<option value="08012021">08-01-2021</option>
+		<option value="09012021">09-01-2021</option>
+		<option value="10012021">10-01-2021</option>
+
+		<option value="11012021">11-01-2021</option>
+		<option value="12012021">12-01-2021</option>
+		<option value="13012021">13-01-2021</option>
+		<option value="14012021">14-01-2021</option>
+		<option value="15012021">15-01-2021</option>
+		<option value="16012021">16-01-2021</option>
+		<option value="17012021">17-01-2021</option>
+		<option value="18012021">18-01-2021</option>
+		<option value="19012021">19-01-2021</option>
+		<option value="20012021">20-01-2021</option>
+
+		<option value="21012021">21-01-2021</option>
+		<option value="22012021">22-01-2021</option>
+		<option value="23012021">23-01-2021</option>
+		<option value="24012021">24-01-2021</option>
+		<option value="25012021">25-01-2021</option>
+		<option value="26012021">26-01-2021</option>
+		<option value="27012021">27-01-2021</option>
+		<option value="28012021">28-01-2021</option>
+		<option value="29012021">29-01-2021</option>
+		<option value="30012021">30-01-2021</option>		
+
+		<option value="31012021">31-01-2021</option>
+
+	</select><br>
+
+	<label for="shift">Mill Shift</label>
+	<select id="shift" name="shift">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+	</select><br>
+
+	<label for="code">Machine Code</label>
+	<select id="code" name="code">
+		<option value="VMCB4101">VMCB4101</option>
+		<option value="VMCB4102">VMCB4102</option>
+		<option value="VMCB4103">VMCB4103</option>
+		<option value="VMCB4104">VMCB4104</option>
+		<option value="VTLB4101">VTLB4101</option>
+		<option value="CNTB4101">CNTB4101</option>
+		<option value="CNTB4102">CNTB4102</option>
+		<option value="CNTB4103">CNTB4103</option>
+		<option value="CNTB4104">CNTB4104</option>
+		<option value="BNDB1101">BNDB1101</option>
+		<option value="BNDB1102">BNDB1102</option>
+		<option value="BNDB1103">BNDB1103</option>
+		<option value="BNDB1104">BNDB1104</option>
+		<option value="BNDB1105">BNDB1105</option>
+		<option value="BNDB1106">BNDB1106</option>
+		<option value="CVTB4102">CVTB4102</option>
+		<option value="DGGB4101">DGGB4101</option>
+		<option value="DRLB4105">DRLB4105</option>
+	</select><br>
+
+	<label for="loss">Loss Code</label>
+	<select id="loss" name="loss">
+		<option value="903">903</option>
+		<option value="405">405</option>
+		<option value="1">1</option>
+		<option value="1903">1903</option>
+		<option value="1006">1006</option>
+		<option value="1002">1002</option>
+		<option value="1303">1303</option>
+		<option value="1902">1902</option>
+		<option value="1901">1901</option>
+		<option value="901">901</option>
+		<option value="201">201</option>
+		<option value="1201">1201</option>
+		<option value="301">301</option>
+		<option value="1904">1904</option>
+		<option value="407">407</option>
+		<option value="406">406</option>
+		<option value="1008">1008</option>
+		<option value="403">403</option>
+		<option value="101">101</option>
+		<option value="102">102</option>
+		<option value="401">401</option>
+		<option value="402">402</option>
+		<option value="402">408</option>
+		<option value="402">902</option>
+		<option value="402">1301</option>
+		<option value="402">1302</option>
+		<option value="402">2015</option>
+		<option value="402">302</option>
+		<option value="402">2014</option>
+		<option value="402">202</option>
+		<option value="402">2016</option>
+		<option value="402">404</option>
+		<option value="402">1007</option>
+		<option value="402">1003</option>
+	</select><br>
+
+
+	<label for="LName">Loss Name</label>
+	<select id="LName" name="LName">
+		<option value="Work_Center_Cleaning">Work Center Cleaning</option>
+		<option value="Tool_Setting">Tool Setting</option>
+		<option value="Other_stop_unknown">Other stop unknown</option>
+		<option value="No_plan">No plan</option>
+		<option value="Tea_time">Tea time</option>
+		<option value="Lunch_&_Dinner_Time">Lunch & Dinner Time</option>
+		<option value="Other_Scheduled_Meeting_by_Management">Other Scheduled Meeting by Management</option>
+		<option value="No_Man_Power">No Man Power</option>
+		<option value="First_off_Insp">First off Insp.</option>
+		<option value="Coolent_Filling">Coolent Filling</option>
+		<option value="Air_Pressure_Low">Air Pressure Low</option>
+		<option value="Other_Reasons">Other Reasons</option>
+		<option value="Wrong_tool_Issue_Tool_Change">Wrong tool Issue-Tool Change</option>
+		<option value="House_Keeping">House Keeping</option>
+		<option value="Insert_Change">Insert Change</option>
+		<option value="Material_Movement">Material Movement</option>
+		<option value="Shift_end_going_early">Shift end going early</option>
+		<option value="Drawing_Clarification">Drawing Clarification</option>
+		<option value="Mechanical_Breakdown">Mechanical Breakdown</option>
+		<option value="Electrical_Breakdown">Electrical Breakdown</option>
+		<option value="No_load">No load</option>
+		<option value="Material_Shortage">Material Shortage</option>
+		<option value="Scrap_Cleaning">Scrap Cleaning</option>
+		<option value="Scrap_Movement">Scrap Movement</option>
+		<option value="Training">Training</option>
+		<option value="Monthly_Communication_Meeting">Monthly Communication Meeting</option>
+		<option value="QC_Inspection">QC Inspection</option>
+		<option value="Want_of_Tool">Want of Tool</option>
+		<option value="Other_Quality_Error">Other Quality Error</option>
+		<option value="Power_Fail">Power Fail</option>
+		<option value="Waiting_For_QC">Waiting For QC</option>
+		<option value="Trail">Trail</option>
+		<option value="Attending_nature_calls">Attending nature calls</option>
+		<option value="Going_early_for_lunch">Going early for lunch</option>
+	</select>
+
+	<button type="submit" class="btn btn-primary btn-lg btn-block">Predict</button>
+	</div><br>
+
+	<center><h3>{{ prediction_text }}</h3></center>
+
+	<div class="jumbotron" style="width: 1000px">
+		<p>2021 DESIGNED BY AKHILAN 		</p>
+		<p>		©ALL COPYRIGHTS RESERVED	</p>
+	</div>
+
+</div>	
+</center>
+</body>
+</html>
